@@ -7,7 +7,7 @@
     <meta name="author" content="MgHla">
 
         <title>Bar Industry :: Vintage Industrial Bar...</title>
-		<!-- updated on 2021-09-15 1130 -->
+		<!-- updated on 2021-09-15 1355 -->
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
 
@@ -52,6 +52,11 @@
 		padding-bottom: .5rem;
 			
 		}
+		
+		th, .th
+		{
+		color:#FAC898; 
+		}
  
 	  
     </style>
@@ -62,7 +67,7 @@
   </head>
   <body class="h-100 text-white bg-dark">
 
-       <!-- Responsive navbar-->
+<!-- Responsive navbar-->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark shadow-lg" style="--bs-bg-opacity: .8;">
             <div class="container">
                 <a class="navbar-brand" href="#"><img alt='Bar Industry' id='BIlogo' src='./assets/BI_Logo_150.png' style='display: block' height='45vh; '/></a>
@@ -72,8 +77,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="#">Home</a></li>
-                    <!--    <li class="nav-item"><a class="nav-link" href="#FoodsMenu">Foods Menu </a></li> -->
-          <li class="nav-item dropdown">
+						<li class="nav-item"><a class="nav-link" href="#FoodsMenu">Foods Menu </a></li>
+<!-- Dropdwon Foods Menu 
+	<li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#FoodsMenu" id="FoodMenudropdown" data-bs-toggle="dropdown" aria-expanded="false">Foods Menu </a>
             <ul class="dropdown-menu bg-gray" style="--bs-bg-opacity: .8;"  aria-labelledby="dropdown01">
               <li><a class="dropdown-item" href="#APPETIZER">Apptizer</a></li>
@@ -93,8 +99,9 @@
 			  <li><a class="dropdown-item" href="#CHICKEN">Chicken</a></li>
             </ul>
           </li>
+-->
                         <li class="nav-item"><a class="nav-link" href="#DrinksMenu">Drinks Menu</a></li>
-						<li class="nav-item"><a class="nav-link" href="#Contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="#CONTACT">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -128,14 +135,15 @@
 
 	
 <!-- FOODS MENU -->
-    <section class="py-10" id="FoodsMenu">
-        <div class="container my-10">
-                <div class="col-lg-8"><h3><b>FOODS MENU</b></h3></div>
+    <section class="py-10">
+
+        <div class="container my-5" id="FoodsMenu">
+                <div class="col-lg-8" ><h3><b>FOODS MENU</b></h3></div>
 				
 			<!-- Apptizer -->
 					<table class="table table-dark table-hover " id="APPETIZER" data-bs-toggle="collapse" data-bs-target="#ApptizerItems" aria-expanded="false" aria-controls="ApptizerItems">
 					
-						<tr ><td colspan="3" align="left" style="font-weight:bold" id="APPETIZER">APPETIZER  <i class="fas fa-angle-down"></i></td></tr>
+						<tr ><th colspan="3" align="left" style="font-weight:bold" id="APPETIZER">APPETIZER  <i class="fas fa-angle-down"></i></th></tr>
 					</table>
 
 						<table class="table table-dark table-hover collapse" id="ApptizerItems">
@@ -162,7 +170,7 @@
 				<!-- Salad -->
 
 					<table class="table table-dark table-hover" data-bs-toggle="collapse" data-bs-target="#SaladItems" aria-expanded="false" aria-controls="SaladItems">
-							<tr><td colspan="3" align="left" style="font-weight:bold" id="SALAD">SALAD   <i class="fas fa-angle-down"></i></td></tr>
+							<tr><th colspan="3" align="left" style="font-weight:bold" id="SALAD">SALAD   <i class="fas fa-angle-down"></i></th></tr>
 					</table>	
 					<table class="table table-dark table-hover collapse" id="SaladItems">		
 							<tr><td style="width: 5%;" align="center"></td><td style="width: 55%;">Myanmar Tea Leaf Salad  </td><td style="width: 25%;" align="right">3,000 Ks</td></tr>	
@@ -186,7 +194,7 @@
 				<!-- BI Signature -->
 
 					<table class="table table-dark table-hover" data-bs-toggle="collapse" data-bs-target="#BISignatureItems" aria-expanded="false" aria-controls="BISignatureItems">	
-							<tr><td colspan="3" align="left" style="font-weight:bold" id="BISIGNATURE">BI SIGNATURE <i class="fas fa-angle-down"></i></td></tr>	
+							<tr><th colspan="3" align="left" style="font-weight:bold" id="BISIGNATURE">BI SIGNATURE <i class="fas fa-angle-down"></i></th></tr>	
 					</table>	
 					<table class="table table-dark table-hover collapse" id="BISignatureItems">
 							<tr><td style="width: 5%;" align="center"></td><td style="width: 55%;">Chicken Satay  </td><td style="width: 25%;" align="right">5,000 Ks</td></tr>
@@ -209,7 +217,7 @@
 				<!-- Chicken -->
 
 					<table class="table table-dark table-hover" data-bs-toggle="collapse" data-bs-target="#ChickenItems" aria-expanded="false" aria-controls="ChickenItems">
-							<tr><td colspan="3" align="left" style="font-weight:bold" id="CHICKEN">CHICKEN  <i class="fas fa-angle-down"></i></td></tr>
+							<tr><th colspan="3" align="left" style="font-weight:bold" id="CHICKEN">CHICKEN  <i class="fas fa-angle-down"></i></th></tr>
 					</table>	
 					<table class="table table-dark table-hover collapse" id="ChickenItems">	
 							<tr><td style="width: 5%;" align="center"></td><td style="width: 55%;">Chicken Nuggest</td><td style="width: 25%;" align="right">4,000 Ks</td></tr>
@@ -230,7 +238,7 @@
 				<!-- PORK -->
 
 					<table class="table table-dark table-hover" data-bs-toggle="collapse" data-bs-target="#PorkItems" aria-expanded="false" aria-controls="PorkItems">
-							<tr><td colspan="3" align="left" style="font-weight:bold" id="PORK">PORK <i class="fas fa-angle-down"></i></td></tr>
+							<tr><th colspan="3" align="left" style="font-weight:bold" id="PORK">PORK <i class="fas fa-angle-down"></i></th></tr>
 					</table>	
 					<table class="table table-dark table-hover collapse" id="PorkItems">	
 							<tr><td style="width: 5%;" align="center"></td><td style="width: 55%;">Crispy Roasted Pork Belly  </td><td style="width: 25%;" align="right">5,500 Ks</td></tr>
@@ -248,7 +256,7 @@
 				<!-- BEEF -->
 
 					<table class="table table-dark table-hover" data-bs-toggle="collapse" data-bs-target="#BeefItems" aria-expanded="false" aria-controls="BeefItems">
-							<tr><td colspan="3" align="left" style="font-weight:bold" id="BEEF">BEEF <i class="fas fa-angle-down"></i></td></tr>
+							<tr><th colspan="3" align="left" style="font-weight:bold" id="BEEF">BEEF <i class="fas fa-angle-down"></i></th></tr>
 					</table>	
 					<table class="table table-dark table-hover collapse" id="BeefItems">							
 							<tr><td style="width: 5%;" align="center"></td><td style="width: 55%;">Fried Beef</td><td style="width: 25%;" align="right">6,000 Ks</td></tr>
@@ -265,16 +273,18 @@
 							
 					</table>
 		</div>
-		
+	</section>
+	
 <!-- DRINKS MENU -->
     <section class="py-10" id="DrinksMenu">
-        <div class="container my-10">
+
+        <div class="container my-10" >
                 <div class="col-lg-8"><h3><b>DRINKS MENU</b></h3></div>
 				
 			<!-- BEER -->
 					<table class="table table-dark table-hover" id="BEER"data-bs-toggle="collapse" data-bs-target="#BeerItems" aria-expanded="false" aria-controls="BeerItems">
-					
-						<tr ><td colspan="3" align="left" style="font-weight:bold"id="BEER">BEER</td></tr>
+<!-- Beer -->					
+						<tr ><th colspan="3" align="left" style="font-weight:bold"id="BEER">BEER <i class="fas fa-angle-down"></i></th></tr>
 					</table>
 					
 						<table class="table table-dark table-hover collapse" id="BeerItems">
@@ -300,7 +310,7 @@
 			<!-- SIGNATURE COCKTAIL -->
 					<table class="table table-dark table-hover" id="SIGNATURECOCKTAIL"data-bs-toggle="collapse" data-bs-target="#SIGNATURECOCKTAILItems" aria-expanded="false" aria-controls="SIGNATURECOCKTAILItems">
 					
-						<tr ><td colspan="3" align="left" style="font-weight:bold"id="BEER">SIGNATURE COCKTAIL</td></tr>
+						<tr ><th colspan="3" align="left" style="font-weight:bold"id="BEER">SIGNATURE COCKTAIL <i class="fas fa-angle-down"></i></th></tr>
 					</table>
 					
 						<table class="table table-dark table-hover collapse" id="SIGNATURECOCKTAILItems">
@@ -317,7 +327,7 @@
 			<!-- CLASSIC COCKTAIL -->
 					<table class="table table-dark table-hover" id="CLASSICCOCKTAIL"data-bs-toggle="collapse" data-bs-target="#CLASSICCOCKTAILItems" aria-expanded="false" aria-controls="CLASSICCOCKTAILItems">
 					
-						<tr ><td colspan="3" align="left" style="font-weight:bold"id="CLASSICCOCKTAIL">CLASSIC COCKTAIL</td></tr>
+						<tr ><th colspan="3" align="left" style="font-weight:bold"id="CLASSICCOCKTAIL">CLASSIC COCKTAIL <i class="fas fa-angle-down"></i></th></tr>
 					</table>
 					
 						<table class="table table-dark table-hover collapse" id="CLASSICCOCKTAILItems">
@@ -334,10 +344,10 @@
 							<tr><td style="width: 5%;" align="center"><img src="" alt=""></td><td style="width: 55%;">Sex On The Beach</td><td style="width: 25%;" align="right">4,000 Ks</td></tr>
 						</table>
 						
-			<!-- CLASSIC COCKTAIL -->
+			<!-- Liquar -->
 					<table class="table table-dark table-hover" id="LIQUAR"data-bs-toggle="collapse" data-bs-target="#LIQUARItems" aria-expanded="false" aria-controls="LIQUARItems">
 					
-						<tr ><td colspan="3" align="left" style="font-weight:bold"id="LIQUAR">LIQUAR</td></tr>
+						<tr ><th colspan="3" align="left" style="font-weight:bold"id="LIQUAR">LIQUAR <i class="fas fa-angle-down"></i></th></tr>
 					</table>
 					
 						<table class="table table-dark table-hover collapse" id="LIQUARItems">
@@ -373,10 +383,10 @@
 							<tr> <td colspan="3" align="center" style="color:#fff; align:center; font-weight:bold;	background-color: rgba(0, 200, 0, .8); "> ** BUY any liquor 1 Bottle - GET Ice & 2 Mixer Free **</td></tr>
 						</table>
 						
-			<!-- CLASSIC COCKTAIL -->
+			<!-- MOCKTAIL -->
 					<table class="table table-dark table-hover" id="MOCKTAIL"data-bs-toggle="collapse" data-bs-target="#MOCKTAILItems" aria-expanded="false" aria-controls="MOCKTAILItems">
 					
-						<tr ><td colspan="3" align="left" style="font-weight:bold"id="MOCKTAIL">MOCKTAIL</td></tr>
+						<tr ><th colspan="3" align="left" style="font-weight:bold"id="MOCKTAIL">MOCKTAIL <i class="fas fa-angle-down"></i></th></tr>
 					</table>
 					
 						<table class="table table-dark table-hover collapse" id="MOCKTAILItems">
@@ -393,6 +403,26 @@
 						</table>
 	</section>
 
-    
+<!-- CONTACT -->
+    <section class="py-10" ID="CONTACT">
+        <div class="container my-10" >
+                <div class="col-lg-8"><h3><b>Contact BI</b></h3></div>
+
+                        <p class="lead"><h5><b>BAR INDUSTRY</b></h5></br>No. 21, Sat Hmu (4) Street, (8) Quartar, South Okkalar Industrial Zone, </br>South Okkalarpa Township, Yangon, Myanmar.</p>
+                        <p class="mb-0">09 950 442 442 , 09 950 441 441</p>
+						<p></p>
+						<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1mCZRpNQ8cTF9mGzTTxfnhLkA9rUne3a1"width="70%" height="350px"></iframe>
+                    </div>
+                </div>
+            </div>
+			<div style="height: 18rem"></div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="py-10 bg-dark ">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Bar Industry</p></div>
+        </footer>
+
+		
   </body>
 </html>
