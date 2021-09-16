@@ -44,11 +44,14 @@
           font-size: 3.5rem;
         }
       }
-	  
+	 
+body {
+  font-family: 'Montserrat', sans-serif;
+}  
 	  	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 
 		{ 
 		color: red; 
-		padding-top: 3rem;
+		padding-top: 1rem;
 		padding-bottom: .5rem;
 			
 		}
@@ -63,6 +66,11 @@
 		background-color: #fff;
 		}		
 		
+		.center {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		}
     </style>
 
     
@@ -131,12 +139,12 @@
 			  </button>
 			</div>	
 
-<div style="height: .3rem" id="FoodsMenu"></div>		
+<div style="height: 4rem" id="FoodsMenu"></div>		
 <!-- FOODS MENU -->
     <section class="py-10">
 
-        <div class="container my-5" >
-                <div class="col-lg-8" ><h3><b>FOODS MENU</b></h3></div>
+        <div class="container my-10" >
+                <div class="col-lg-12  text-center" ><h3><b>FOODS MENU</b></h3></div>
 
 <div class="container">
   <div class="row">
@@ -414,11 +422,11 @@
 	
 	
 <!-- DRINKS MENU -->
-<div style="height: 2.3rem" id="DrinksMenu"></div>		
+<div style="height: 4rem" id="DrinksMenu"></div>		
     <section class="py-10">
 
         <div class="container my-10" >
-                <div class="col-lg-8"><h3><b>DRINKS MENU</b></h3></div>
+                <div class="col-lg-12  text-center"><h3><b>DRINKS MENU</b></h3></div>
 <div class="container">
   <div class="row">
     <div class="col">
@@ -549,18 +557,25 @@
 	</section>
 
 <!-- CONTACT -->
-<div style="height: 2.3rem" id="CONTACT"></div>		
+<div style="height: 3rem" id="CONTACT"></div>		
     <section class="py-10" >
-        <div class="container my-8" >
-                <div class="col-lg-8"><h3><b>Contact BI</b></h3></div>
+        <div class="container my-10" >
+                <div class="col-lg-12 text-center"><h3><b>CONTACT BI</b></h3></div>
 
-                        <p class="lead"><h5><b>BAR INDUSTRY</b></h5></br>No. 21, Sat Hmu (4) Street, (8) Quartar, South Okkalar Industrial Zone, </br>South Okkalarpa Township, Yangon, Myanmar.</p>
-                        <p class="mb-0">09 950 442 442 , 09 950 441 441</p>
+                        <!-- <p class="col-lg-12 text-center" style="font-weight=600; font-size:4rem;">BAR INDUSTRY</p> -->
+						<img alt='Bar Industry' id='BIlogo' src='./assets/BI_Logo_150.png' style='display: block' height='70vh; ' class="center"/>
+						
+						<p class="col-lg-12 text-center">No. 21, Sat Hmu (4) Street, (8) Quartar, South Okkalar Industrial Zone, </br>South Okkalarpa Township, Yangon, Myanmar.</p>
+                        <p class="mb-0 text-center"><i class="fas fa-phone-square-alt">   </i><a href="tel:09 950 442 442">09 950 442 442 </a> </br>
+						<i class="fas fa-phone-square-alt">   </i><a href="tel:09 950 441 441">09 950 441 441</a> </br>
+						<i class="fab fa-facebook-square"></i><a href="https://www.facebook.com/barindustrymm">/barindustrymm</a>
+						</p>
 						<p></p>
-						<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1mCZRpNQ8cTF9mGzTTxfnhLkA9rUne3a1"width="70%" height="350px"></iframe>
+						
+						<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1mCZRpNQ8cTF9mGzTTxfnhLkA9rUne3a1"width="70%" height="350px" class="center"></iframe>
         </div>
 
-			<div style="height: 18rem"></div>
+			<div style="height: 2rem"></div>
         </section>
 
         <!-- Footer-->
@@ -568,6 +583,6 @@
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Bar Industry</p></div>
         </footer>
 
-		
+			<div style="height: .3rem"></div>		
   </body>
 </html>
