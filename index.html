@@ -51,7 +51,7 @@
 	  line-height:1.6; -->
 	  }
 
-a{color:#fff;text-decoration:none;font-weight:400;}a:hover{color:#FF5F1F;text-decoration:none;font-weight:800;} 
+	a{color:#fff;text-decoration:none;font-weight:400;}a:hover{color:#FF5F1F;text-decoration:none;font-weight:800;} 
 
 	  	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 
 		{ 
@@ -60,7 +60,11 @@ a{color:#fff;text-decoration:none;font-weight:400;}a:hover{color:#FF5F1F;text-de
 		padding-bottom: .5rem;
 			
 		}
-		
+		navbar-nav, .navbar-nav, nav-link, .nav-link
+		{
+		font-size: 1.2rem;
+		}
+
 		th, .th
 		{
 		color:#fff; 
@@ -85,7 +89,7 @@ a{color:#fff;text-decoration:none;font-weight:400;}a:hover{color:#FF5F1F;text-de
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
   </head>
-  <body class="h-100 text-white bg-black">
+  <body class="h-100 text-white bg-dark">
 
 <!-- Responsive navbar-->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark  shadow-lg" style="--bs-bg-opacity: .6; background-color:rgba(0,0,0,.7);">
@@ -106,7 +110,7 @@ a{color:#fff;text-decoration:none;font-weight:400;}a:hover{color:#FF5F1F;text-de
         </nav>
 
 
-			<div style="height: 3.1rem" id="Home"></div>
+			<div style="height: 3.5rem" id="Home"></div>
 			
 			<div id="carouselControls" class="carousel slide " data-bs-ride="carousel">
 			  <div class="carousel-inner" style="background-color: bg-dark;">
@@ -295,176 +299,204 @@ a{color:#fff;text-decoration:none;font-weight:400;}a:hover{color:#FF5F1F;text-de
 				</div>
 			</div>
 						
-				<!-- PORK 
-
-					<table class="table table-black table-hover" data-bs-toggle="collapse" data-bs-target="#PorkItems" aria-expanded="false" aria-controls="PorkItems">
-							<tr><th colspan="3" align="left" style="font-weight:bold" id="PORK">PORK <i class="fas fa-angle-down"></i></th></tr>
-					</table>	
-					<table class="table table-dark table-hover collapse" id="PorkItems">	
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Crispy Roasted Pork Belly  </td><td style="width: 25%;" align="right">5,500 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Grilled Pork Shoulder  </td><td style="width: 25%;" align="right">5,500 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Grilled Pork Ribs  </td><td style="width: 25%;" align="right">6,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Deep Fried Pork Ribs  </td><td style="width: 25%;" align="right">6,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Pork Cordon Bleu  </td><td style="width: 25%;" align="right">8,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Grilled Pork Chop With Mash Potato & Sauteed Vegetables  </td><td style="width: 25%;" align="right">12,000 Ks</td></tr> -->
-
-				<!-- BEEF -->
-
-					<table class="table table-black table-hover" data-bs-toggle="collapse" data-bs-target="#BeefItems" aria-expanded="false" aria-controls="BeefItems">
-							<tr><th colspan="3" align="left" style="font-weight:bold" id="BEEF">BEEF <i class="fas fa-angle-down"></i></th></tr>
-					</table>	
-					<table class="table table-dark table-hover collapse" id="BeefItems">							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fried Beef</td><td style="width: 25%;" align="right">6,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Minced Beef</td><td style="width: 25%;" align="right">6,500 Ks</td></tr>	
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Beef Salad</td><td style="width: 25%;" align="right">6,500 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Mash Beef</td><td style="width: 25%;" align="right">6,500 Ks</td></tr>		
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Beef Stir - Fry With Oyster Sauce</td><td style="width: 25%;" align="right">6,500 Ks</td></tr>		
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">BBQ Beef Steak Fajita</td><td style="width: 25%;" align="right">9,000 Ks</td></tr>			
-					</table>
-							
-							
-    </div>
+<!-- BEEF Modal -->
+		<table class="table table-black table-hover " id="BEEF" data-bs-toggle="modal" data-bs-target="#BEEFModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">BEEF  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="BEEFModal" tabindex="-1" aria-labelledby="BEEFModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="BEEFModalLabel"><b>BEEF</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Fried Beef</div> <div class="col-4">6,000 Ks</div>
+								<div class="col-8">Minced Beef</div> <div class="col-4">6,500 Ks</div>
+								<div class="col-8">Beef Salad</div> <div class="col-4">6,500 Ks</div>
+								<div class="col-8">Mash Beef</div> <div class="col-4">6,500 Ks</div>
+								<div class="col-8">Beef Stir - Fry With Oyster Sauce</div> <div class="col-4">6,500 Ks</div>
+								<div class="col-8">BBQ Beef Steak Fajita</div> <div class="col-4">9,000 Ks</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+					
+    </div> 
+	
+	
     <div class="col">
 							
-							
-				<!-- FISH & PRAWN -->
+<!-- FISH & PRAWN Modal -->
+		<table class="table table-black table-hover " id="FISHPRAWN" data-bs-toggle="modal" data-bs-target="#FISHPRAWNModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">FISH & PRAWN  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="FISHPRAWNModal" tabindex="-1" aria-labelledby="FISHPRAWNModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="FISHPRAWNModalLabel"><b>FISH & PRAWN</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Fish Figer</div> <div class="col-4">4,500 Ks</div>
+								<div class="col-8">Smoke EEL</div> <div class="col-4">5,500 Ks</div>
+								<div class="col-8">Fish & Chip With Cheese Sauce</div> <div class="col-4">5,500 Ks</div>
+								<div class="col-8">Seafood Salad</div> <div class="col-4">6,000 Ks</div>
+								<div class="col-8">Grill Squid</div> <div class="col-4">6,000 Ks</div>
+								<div class="col-8">Vermicelli Seafood Salad</div> <div class="col-4">6,500 Ks</div>
+								<div class="col-8">Prawn Tempura</div> <div class="col-4">6,500 Ks</div>
+								<div class="col-8">Raw Prawn Salad</div> <div class="col-4">6,500 Ks</div>
+								<div class="col-8">Prawn Mayonnaise</div> <div class="col-4">6,500 Ks</div>
+								<div class="col-8">Grilled Prawn</div> <div class="col-4">6,500 Ks</div>
+								<div class="col-8">Grailled Fish With Aluminum Foil</div> <div class="col-4">12,000 Ks</div>
+								<div class="col-8">Marlar Sea Bass</div> <div class="col-4">15,000 Ks</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>							
 
-					<table class="table table-black table-hover" data-bs-toggle="collapse" data-bs-target="#FISHPRAWNItems" aria-expanded="false" aria-controls="FISHPRAWNItems">	
-							<tr><th colspan="3" align="left" style="font-weight:bold" id="FISHPRAWN">FISH & PRAWN <i class="fas fa-angle-down"></i></th></tr>	
-					</table>	
-					<table class="table table-dark table-hover collapse" id="FISHPRAWNItems">
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fish Figer  </td><td style="width: 25%;" align="right">4,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Smoke EEL </td><td style="width: 25%;" align="right">5,500 Ks</td></tr>	
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fish & Chip With Cheese Sauce</td><td style="width: 25%;" align="right">5,500 Ks</td></tr>
+<!-- VEGETABLES Modal -->
+		<table class="table table-black table-hover " id="VEGETABLES" data-bs-toggle="modal" data-bs-target="#VEGETABLESModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">VEGETABLES  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="VEGETABLESModal" tabindex="-1" aria-labelledby="VEGETABLESModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="VEGETABLESModalLabel"><b>VEGETABLES</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Mixed Vegetables Tempura</div> <div class="col-4">4,000 Ks</div>
+								<div class="col-8">Fried Mixed Vegetables (Chicken / Pork / Seafood)</div> <div class="col-4">4,000 / 5,500 Ks</div>
+								<div class="col-8">Fried Watercress</div> <div class="col-4">3,500 Ks</div>
+								<div class="col-8">Fried Watercress With Pork Belly</div> <div class="col-4">5,500 Ks</div>
+								<div class="col-8">Fried Kai Lan</div> <div class="col-4">3,500 Ks</div>
+								<div class="col-8">Fried Kai Lan With Pork Belly</div> <div class="col-4">5,500 Ks</div>
+								<div class="col-8">Cauliflower Egg</div> <div class="col-4">3,500 Ks</div>
+								<div class="col-8">Vegetable With Japan Tofu</div> <div class="col-4">4,000 Ks</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>			
 
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Seafood Salad  </td><td style="width: 25%;" align="right">6,000 Ks</td></tr>
+<!-- SOUP Modal -->
+		<table class="table table-black table-hover " id="SOUP" data-bs-toggle="modal" data-bs-target="#SOUPModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">SOUP  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="SOUPModal" tabindex="-1" aria-labelledby="SOUPModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="SOUPLabel"><b>SOUP</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Vegetable Egg Drop Soup</div> <div class="col-4">4,500 Ks</div>
+								<div class="col-8">Chicken Gwai Touk Soup</div> <div class="col-4">5,000 Ks</div>
+								<div class="col-8">Chicken Touk San</div> <div class="col-4">5,000 Ks</div>
+								<div class="col-8">Pickle Soup with Pork Ribs</div> <div class="col-4">5,500 Ks</div>
+								<div class="col-8">Tom Yum Soup (Chicken / Pork / Seafood)</div> <div class="col-4">5,500 / 6,000 Ks</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>	
 
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Grill Squid</td><td style="width: 25%;" align="right">6,000 Ks</td></tr>			
+<!-- RICE, NOODLE & VERMICELLI Modal -->
+		<table class="table table-black table-hover " id="RICE" data-bs-toggle="modal" data-bs-target="#RICEModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">RICE, NOODLE & VERMICELLI  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="RICEModal" tabindex="-1" aria-labelledby="RICEModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="RICEModalLabel"><b>RICE, NOODLE & VERMICELLI</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+<div class="col-8">BI Signature Fried Rice (Chicken / Pork / Seafood)</div> <div class="col-4">4,000 / 6,000 Ks</div>
+<div class="col-8">Fried Rice (Chicken / Pork / Seafood)</div> <div class="col-4">4,000 / 6,000 Ks</div>
+<div class="col-8">Fried Noodle (Chicken / Pork / Seafood)</div> <div class="col-4">4,000 / 6,000 Ks</div>
+<div class="col-8">Fried Vermicelli (Chicken / Pork / Seafood)</div> <div class="col-4">4,000 / 6,000 Ks</div>
+<div class="col-12">** <strong>Can be order to large portion, will be extra charge (+2000 Ks) </strong>**</div> 
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>						
 
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Vermicelli Seafood Salad  </td><td style="width: 25%;" align="right">6,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Prawn Tempura</td><td style="width: 25%;" align="right">6,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Raw Prawn Salad</td><td style="width: 25%;" align="right">6,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Prawn Mayonnaise</td><td style="width: 25%;" align="right">6,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Grilled Prawn </td><td style="width: 25%;" align="right">6,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Grailled Fish With Aluminum Foil</td><td style="width: 25%;" align="right">12,000 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Marlar Sea Bass</td><td style="width: 25%;" align="right">15,000 Ks</td></tr>			
-					</table>
+<!-- PASTA Modal -->
+		<table class="table table-black table-hover " id="RICE" data-bs-toggle="modal" data-bs-target="#PASTAModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">PASTA  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="PASTAModal" tabindex="-1" aria-labelledby="PASTAModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="PASTAModalLabel"><b>PASTA</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Aglio Olio (Chicken / Seafood)</div> <div class="col-4">5,500 / 6,500 Ks</div>
+								<div class="col-8">Spaghetti In Tomato Sauce (Chicken / Seafood)</div> <div class="col-4">5,500 / 6,500 Ks</div>
+								<div class="col-8">Spaghetti Bolognese (Chicken / Pork / Beef)</div> <div class="col-4">5,500 / 6,500 Ks</div>
+								<div class="col-8">Spaghetti Carbonara With Bacon & Mushroom</div> <div class="col-4">5,500 Ks</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>		
 
-				<!-- VEGETABLES -->
+<!-- BURGERSANDWICH Modal -->
+		<table class="table table-black table-hover " id="BURGERSANDWICH" data-bs-toggle="modal" data-bs-target="#BURGERSANDWICHModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">BURGER & SANDWICH  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="BURGERSANDWICHModal" tabindex="-1" aria-labelledby="BURGERSANDWICHModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="BURGERSANDWICHModalLabel"><b>BURGER & SANDWICH</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Cheese Sandwich</div> <div class="col-4">3,500 Ks</div>
+								<div class="col-8">Tuna Sandwich</div> <div class="col-4">4,500 Ks</div>
+								<div class="col-8">Club Sandwich</div> <div class="col-4">5,500 Ks</div>
+								<div class="col-8">Ham Sandwich</div> <div class="col-4">5,500 Ks</div>
+								<div class="col-8">Burger (Chicken / Pork / Beef)</div> <div class="col-4">6,000 / 6,500 Ks</div>
+								<div class="col-12">** <strong>Burger & Sandwich are served with the french fries</strong> **</div> 
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>							
 
-					<table class="table table-black table-hover" data-bs-toggle="collapse" data-bs-target="#VEGETABLESItems" aria-expanded="false" aria-controls="VEGETABLESItems">	
-							<tr><th colspan="3" align="left" style="font-weight:bold" id="VEGETABLES">VEGETABLES <i class="fas fa-angle-down"></i></th></tr>	
-					</table>	
-					<table class="table table-dark table-hover collapse" id="VEGETABLESItems">
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Mixed Vegetables Tempura </td><td style="width: 25%;" align="right">4,000 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fried Mixed Vegetables (Chicken / Pork / Seafood)</td><td style="width: 25%;" align="right">4,000 / 5,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fried Watercress</td><td style="width: 25%;" align="right">3,500 Ks</td></tr>				
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fried Watercress With Pork Belly</td><td style="width: 25%;" align="right">5,500 Ks</td></tr>		
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fried Kai Lan  </td><td style="width: 25%;" align="right">3,500 Ks</td></tr>		
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fried Kai Lan With Pork Belly</td><td style="width: 25%;" align="right">5,500 Ks</td></tr>			
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Cauliflower Egg</td><td style="width: 25%;" align="right">3,500 Ks</td></tr>			
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Vegetable With Japan Tofu</td><td style="width: 25%;" align="right">4,000 Ks</td></tr>	
-					</table>
-					
-				<!-- SOUP -->
-
-					<table class="table table-black table-hover" data-bs-toggle="collapse" data-bs-target="#SOUPItems" aria-expanded="false" aria-controls="SOUPItems">	
-							<tr><th colspan="3" align="left" style="font-weight:bold" id="SOUP">SOUP <i class="fas fa-angle-down"></i></th></tr>	
-					</table>	
-					<table class="table table-dark table-hover collapse" id="SOUPItems">
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Vegetable Egg Drop Soup</td><td style="width: 25%;" align="right">4,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Chicken Gwai Touk Soup</td><td style="width: 25%;" align="right">5,000 Ks</td></tr>
-														
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Chicken Touk San</td><td style="width: 25%;" align="right">5,000 Ks</td></tr>
-														
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Pickle Soup with Pork Ribs</td><td style="width: 25%;" align="right">5,500 Ks</td></tr>
-														
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Tom Yum Soup (Chicken / Pork / Seafood)</td><td style="width: 25%;" align="right">5,500 / 6,000 Ks</td></tr>
-					</table>
-					
-				<!-- RICE, NOODLE & VERMICELLI -->
-
-					<table class="table table-black table-hover" data-bs-toggle="collapse" data-bs-target="#RiceItems" aria-expanded="false" aria-controls="RiceItems">	
-							<tr><th colspan="3" align="left" style="font-weight:bold" id="RICE">RICE, NOODLE & VERMICELLI <i class="fas fa-angle-down"></i></th></tr>	
-					</table>	
-					<table class="table table-dark table-hover collapse" id="RiceItems">
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">BI Signature Fried Rice (Chicken / Pork / Seafood)</td><td style="width: 25%;" align="right">4,000 / 6,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fried Rice (Chicken / Pork / Seafood)</td><td style="width: 25%;" align="right">4,000 / 6,000 Ks</td></tr>						
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fried Noodle (Chicken / Pork / Seafood)</td><td style="width: 25%;" align="right">4,000 / 6,000 Ks</td></tr>		
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Fried Vermicelli (Chicken / Pork / Seafood)</td><td style="width: 25%;" align="right">4,000 / 6,000 Ks</td></tr>		
-							
-							<tr> <td colspan="3" align="center" style="color:#fff; align:center; font-weight:bold;	background-color: #FF5F1F; "> ** Can be order to large portion, will be extra charge (+2000 Ks) **</td></tr>							
-					</table>
-
-				<!-- PASTA -->
-
-					<table class="table table-black table-hover" data-bs-toggle="collapse" data-bs-target="#PASTAItems" aria-expanded="false" aria-controls="PASTAItems">	
-							<tr><th colspan="3" align="left" style="font-weight:bold" id="RICE">PASTA <i class="fas fa-angle-down"></i></th></tr>	
-					</table>	
-					<table class="table table-dark table-hover collapse" id="PASTAItems">
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Aglio Olio (Chicken / Seafood)</td><td style="width: 25%;" align="right">5,500 / 6,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Spaghetti In Tomato Sauce (Chicken / Seafood)</td><td style="width: 25%;" align="right">5,500 / 6,500 Ks</td></tr>
-														
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Spaghetti Bolognese (Chicken / Pork / Beef)</td><td style="width: 25%;" align="right">5,500 / 6,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Spaghetti Carbonara With Bacon & Mushroom</td><td style="width: 25%;" align="right">5,500 Ks</td></tr>						
-					</table>
-					
-				<!-- BURGER & SANDWICH -->
-
-					<table class="table table-black table-hover" data-bs-toggle="collapse" data-bs-target="#BURGERSANDWICHItems" aria-expanded="false" aria-controls="BURGERSANDWICHItems">	
-							<tr><th colspan="3" align="left" style="font-weight:bold" id="BURGERSANDWICH">BURGER & SANDWICH <i class="fas fa-angle-down"></i></th></tr>	
-					</table>	
-					<table class="table table-dark table-hover collapse" id="BURGERSANDWICHItems">
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Cheese Sandwich</td><td style="width: 25%;" align="right">3,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Tuna Sandwich</td><td style="width: 25%;" align="right">4,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Club Sandwich</td><td style="width: 25%;" align="right">5,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Ham Sandwich</td><td style="width: 25%;" align="right">5,500 Ks</td></tr>
-							
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Burger (Chicken / Pork / Beef)</td><td style="width: 25%;" align="right">6,000 / 6,500 Ks</td></tr>
-														
-							<tr> <td colspan="3" align="center" style="color:#fff; align:center; font-weight:bold;	background-color: #FF5F1F; "> ** Burger & Sandwich are served with the french fries **</td></tr>		
-					</table>							
-							
-							
-							
-				</td></tr>
-</table>
 			</div>
 			</div>
 		</div>
@@ -480,139 +512,180 @@ a{color:#fff;text-decoration:none;font-weight:400;}a:hover{color:#FF5F1F;text-de
 <div class="container">
   <div class="row">
     <div class="col">
-			<!-- BEER -->
-					<table class="table table-black table-hover" id="BEER"data-bs-toggle="collapse" data-bs-target="#BeerItems" aria-expanded="false" aria-controls="BeerItems">
-<!-- Beer -->					
-						<tr ><th colspan="3" align="left" style="font-weight:bold"id="BEER">BEER <i class="fas fa-angle-down"></i></th></tr>
-					</table>
-					
-						<table class="table table-dark table-hover collapse" id="BeerItems">
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Heineken Beer (330ml)</td><td style="width: 25%;" align="right">2,500 Ks</td></tr>
 
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Tiger Crystal Beer (330ml)</td><td style="width: 25%;" align="right">2,000 Ks</td></tr>
+<!-- BEER Modal -->
+		<table class="table table-black table-hover " id="BEER" data-bs-toggle="modal" data-bs-target="#BEERModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">BEER  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="BEERModal" tabindex="-1" aria-labelledby="BEERModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="BEERModalLabel"><b>BEER</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Heineken Beer (330ml)</div> <div class="col-4">2,500 Ks</div>
+								<div class="col-8">Tiger Crystal Beer (330ml)</div> <div class="col-4">2,000 Ks</div>
+								<div class="col-8">Budweiser Beer (335ml)</div> <div class="col-4">3,000 Ks</div>
+								<div class="col-8">Corona Beer (335ml)</div> <div class="col-4">3,000 Ks</div>
+								<div class="col-8">Hoegaarden Beer (330ml)</div> <div class="col-4">3,000 Ks</div>
+								<div class="col-8">ABC Beer (640ml)</div> <div class="col-4">3,500 Ks</div>
+								<div class="col-8">Tiger Beer (640ml)</div> <div class="col-4">3,000 Ks</div>
+								<div class="col-8">Heineken Draught Beer (2.5L)</div> <div class="col-4">18,000 Ks</div>
+								<div class="col-8">Tiger Draught Beer (2.5L)</div> <div class="col-4">15,000 Ks</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>		
 
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Budweiser Beer (335ml)</td><td style="width: 25%;" align="right">3,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Corona Beer (335ml)</td><td style="width: 25%;" align="right">3,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Hoegaarden Beer (330ml)</td><td style="width: 25%;" align="right">3,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">ABC Beer (640ml)</td><td style="width: 25%;" align="right">3,500 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Tiger Beer (640ml)</td><td style="width: 25%;" align="right">3,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Heineken Draught Beer (2.5L)</td><td style="width: 25%;" align="right">18,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td><td style="width: 55%;">Tiger Draught Beer (2.5L)</td><td style="width: 25%;" align="right">15,000 Ks</td></tr>
-						</table>
+<!-- SIGNATURE COCKTAIL Modal -->
+		<table class="table table-black table-hover " id="SIGNATURECOCKTAIL" data-bs-toggle="modal" data-bs-target="#SIGNATURECOCKTAILModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">SIGNATURE COCKTAIL  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="SIGNATURECOCKTAILModal" tabindex="-1" aria-labelledby="SIGNATURECOCKTAILModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="SIGNATURECOCKTAILModalLabel"><b>SIGNATURE COCKTAIL</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Passionate Kiss</div> <div class="col-4">5,000 Ks</div>
+								<div class="col-8">Tokyo Ice Tea</div> <div class="col-4">5,000 Ks</div>
+								<div class="col-8">Amsterdam Mule</div> <div class="col-4">5,000 Ks</div>
+								<div class="col-8">Industry Ice Fizz Tea</div> <div class="col-4">5,000 Ks</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>		
 						
-			<!-- SIGNATURE COCKTAIL -->
-					<table class="table table-black table-hover" id="SIGNATURECOCKTAIL"data-bs-toggle="collapse" data-bs-target="#SIGNATURECOCKTAILItems" aria-expanded="false" aria-controls="SIGNATURECOCKTAILItems">
-					
-						<tr ><th colspan="3" align="left" style="font-weight:bold"id="BEER">SIGNATURE COCKTAIL <i class="fas fa-angle-down"></i></th></tr>
-					</table>
-					
-						<table class="table table-dark table-hover collapse" id="SIGNATURECOCKTAILItems">
+<!-- CLASSIC COCKTAIL Modal -->
+		<table class="table table-black table-hover " id="CLASSICCOCKTAIL" data-bs-toggle="modal" data-bs-target="#CLASSICCOCKTAILModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">CLASSIC COCKTAIL  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="CLASSICCOCKTAILModal" tabindex="-1" aria-labelledby="CLASSICCOCKTAILModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="CLASSICCOCKTAILModalLabel"><b>CLASSIC COCKTAIL</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Mojito</div> <div class="col-4">4,000 Ks</div>
+								<div class="col-8">Long Island Ice Tea</div> <div class="col-4">4,000 Ks</div>
+								<div class="col-8">AK 47</div> <div class="col-4">4,000 Ks</div>
+								<div class="col-8">Margarita</div> <div class="col-4">4,000 Ks</div>
+								<div class="col-8">Negroni</div> <div class="col-4">4,000 Ks</div>
+								<div class="col-8">Sex On The Beach</div> <div class="col-4">4,000 Ks</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>		
 
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Passionate Kiss</td><td style="width: 25%;" align="right">5,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Tokyo Ice Tea</td><td style="width: 25%;" align="right">5,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Amsterdam Mule</td><td style="width: 25%;" align="right">5,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Industry Ice Fizz Tea</td><td style="width: 25%;" align="right">5,000 Ks</td></tr>
-						</table>
-						
-			<!-- CLASSIC COCKTAIL -->
-					<table class="table table-black table-hover" id="CLASSICCOCKTAIL"data-bs-toggle="collapse" data-bs-target="#CLASSICCOCKTAILItems" aria-expanded="false" aria-controls="CLASSICCOCKTAILItems">
-					
-						<tr ><th colspan="3" align="left" style="font-weight:bold"id="CLASSICCOCKTAIL">CLASSIC COCKTAIL <i class="fas fa-angle-down"></i></th></tr>
-					</table>
-					
-						<table class="table table-dark table-hover collapse" id="CLASSICCOCKTAILItems">
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Mojito</td><td style="width: 25%;" align="right">4,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Long Island Ice Tea</td><td style="width: 25%;" align="right">4,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">AK 47</td><td style="width: 25%;" align="right">4,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"></td></td><td style="width: 55%;">Margarita</td><td style="width: 25%;" align="right">4,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Negroni</td><td style="width: 25%;" align="right">4,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Sex On The Beach</td><td style="width: 25%;" align="right">4,000 Ks</td></tr>
-						</table>
     </div>
-    <div class="col">						
-			<!-- Liquar -->
-					<table class="table table-black table-hover" id="LIQUAR"data-bs-toggle="collapse" data-bs-target="#LIQUARItems" aria-expanded="false" aria-controls="LIQUARItems">
-					
-						<tr ><th colspan="3" align="left" style="font-weight:bold"id="LIQUAR">LIQUAR <i class="fas fa-angle-down"></i></th></tr>
-					</table>
-					
-						<table class="table table-dark table-hover collapse" id="LIQUARItems">
+    <div class="col">			
 
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Gold Label (1L)</td><td style="width: 25%;" align="right">53,000 Ks</td></tr>
+<!-- LIQUAR Modal -->
+		<table class="table table-black table-hover " id="LIQUAR" data-bs-toggle="modal" data-bs-target="#LIQUARModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">LIQUAR  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="LIQUARModal" tabindex="-1" aria-labelledby="LIQUARModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="LIQUARModalLabel"><b>LIQUAR</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Gold Label (1L)</div> <div class="col-4">53,000 Ks</div>
+								<div class="col-8">Black Label (1L)</div> <div class="col-4">35,000 Ks</div>
+								<div class="col-8">Double Black (1L)</div> <div class="col-4">43,000 Ks</div>
+								<div class="col-8">Chivas 12 Yrs (1L)</div> <div class="col-4">35,000 Ks</div>
+								<div class="col-8">Glenfiddich 12 Yrs (1L)</div> <div class="col-4">46,000 Ks</div>
+								<div class="col-8">Monkey Shoulder (0.75cl)</div> <div class="col-4">46,000 Ks</div>
+								<div class="col-8">Jagermeister (1L)</div> <div class="col-4">26,000 Ks</div>
+								<div class="col-8">Jack Daniel (1L)</div> <div class="col-4">31,000 Ks</div>
+								<div class="col-8">Jameson (1L)</div> <div class="col-4">29,000 Ks</div>
+								<div class="col-8">Bombay Gin (1L)</div> <div class="col-4">24,500 Ks</div>
+								<div class="col-8">Jose Gold (1L)</div> <div class="col-4">26,500 Ks</div>
+								<div class="col-8">Absolute Vodka (1L)</div> <div class="col-4">21,000 Ks</div>
+								<div class="col-8">Hendrick (0.75cl)</div> <div class="col-4">48,000 Ks</div>
+								<div class="col-8">Captain Gold (1L)</div> <div class="col-4">22,500 Ks</div>
+								<div class="col-12">** <strong>BUY any liquor 1 Bottle - GET Ice & 2 Mixer Free</strong> **</div> 
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>			
 
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Black Label (1L)</td><td style="width: 25%;" align="right">35,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Double Black (1L)</td><td style="width: 25%;" align="right">43,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Chivas 12 Yrs (1L)</td><td style="width: 25%;" align="right">35,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Glenfiddich 12 Yrs (1L)</td><td style="width: 25%;" align="right">46,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Monkey Shoulder (0.75cl)</td><td style="width: 25%;" align="right">46,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Jagermeister (1L)</td><td style="width: 25%;" align="right">26,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Jack Daniel (1L)</td><td style="width: 25%;" align="right">31,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Jameson (1L)</td><td style="width: 25%;" align="right">29,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Bombay Gin (1L)</td><td style="width: 25%;" align="right">24,500 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Jose Gold (1L)</td><td style="width: 25%;" align="right">26,500 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Absolute Vodka (1L)</td><td style="width: 25%;" align="right">21,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Hendrick (0.75cl)</td><td style="width: 25%;" align="right">48,000 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Captain Gold (1L)</td><td style="width: 25%;" align="right">22,500 Ks</td></tr>
-
-							<tr> <td colspan="3" align="center" style="color:#fff; align:center; font-weight:bold;	background-color: rgba(0, 200, 0, .8); "> ** BUY any liquor 1 Bottle - GET Ice & 2 Mixer Free **</td></tr>
-						</table>
+<!-- MOCKTAIL Modal -->
+		<table class="table table-black table-hover " id="MOCKTAIL" data-bs-toggle="modal" data-bs-target="#MOCKTAILModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">MOCKTAIL  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="MOCKTAILModal" tabindex="-1" aria-labelledby="MOCKTAILModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="MOCKTAILModalLabel"><b>MOCKTAIL</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Tropical Mango</div> <div class="col-4">3,500 Ks</div>
+								<div class="col-8">Pineapple Spice</div> <div class="col-4">3,500 Ks</div>
+								<div class="col-8">Never Don't Remember</div> <div class="col-4">3,500 Ks</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+			
+	<!-- SOFT DRINK Modal -->
+		<table class="table table-black table-hover " id="SOFTDRINK" data-bs-toggle="modal" data-bs-target="#SOFTDRINKModal">
+			<tr ><th colspan="3" align="left" style="font-weight:bold">SOFT DRINK  <i class="fas fa-angle-down"></i></th></tr>
+		</table>
+			<div class="modal fade" id="SOFTDRINKModal" tabindex="-1" aria-labelledby="SOFTDRINKModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content bg-secondary">
+						 <div class="modal-header">
+							<span class="modal-title" id="SOFTDRINKModalLabel"><b>SOFT DRINK</b></span>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 </div>
+						<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-8">Coke</div> <div class="col-4">1,000 Ks</div>
+								<div class="col-8">Sprite</div> <div class="col-4">1,000 Ks</div>
+								<div class="col-8">Tonic</div> <div class="col-4">1,000 Ks</div>
+								<div class="col-8">Ginger Ale</div> <div class="col-4">1,000 Ks</div>
+								<div class="col-8">Soda</div> <div class="col-4">1,000 Ks</div>
+								<div class="col-8">Red Bull</div> <div class="col-4">1,000 Ks</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>			
 						
-			<!-- MOCKTAIL -->
-					<table class="table table-black table-hover" id="MOCKTAIL"data-bs-toggle="collapse" data-bs-target="#MOCKTAILItems" aria-expanded="false" aria-controls="MOCKTAILItems">
-					
-						<tr ><th colspan="3" align="left" style="font-weight:bold"id="MOCKTAIL">MOCKTAIL <i class="fas fa-angle-down"></i></th></tr>
-					</table>
-					
-						<table class="table table-dark table-hover collapse" id="MOCKTAILItems">
 
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Tropical Mango</td><td style="width: 25%;" align="right">3,500 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Pineapple Spice</td><td style="width: 25%;" align="right">3,500 Ks</td></tr>
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Never Don't Remember</td><td style="width: 25%;" align="right">3,500 Ks</td></tr>
-						</table>
-
-			<!-- SOFT DRINK -->
-					<table class="table table-black table-hover" id="SOFTDRINK"data-bs-toggle="collapse" data-bs-target="#SOFTDRINKItems" aria-expanded="false" aria-controls="SOFTDRINKItems">
-					
-						<tr ><th colspan="3" align="left" style="font-weight:bold"id="SOFTDRINK">SOFT DRINK <i class="fas fa-angle-down"></i></th></tr>
-					</table>
-					
-						<table class="table table-dark table-hover collapse" id="SOFTDRINKItems">
-
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Coke</td><td style="width: 25%;" align="right">1,000 Ks</td></tr>	
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Sprite</td><td style="width: 25%;" align="right">1,000 Ks</td></tr>		
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Tonic</td><td style="width: 25%;" align="right">1,000 Ks</td></tr>		
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Ginger Ale</td><td style="width: 25%;" align="right">1,000 Ks</td></tr>		
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Soda</td><td style="width: 25%;" align="right">1,000 Ks</td></tr>			
-							<tr><td style="width: 5%;"><img src="" alt=""></td><td style="width: 55%;">Red Bull</td><td style="width: 25%;" align="right">1,000 Ks</td></tr>
-						</table>
    </div>
   </div>
 			</div>
@@ -633,8 +706,10 @@ a{color:#fff;text-decoration:none;font-weight:400;}a:hover{color:#FF5F1F;text-de
 						<i class="fab fa-facebook-square"  style="font-size: 1.2em;  padding-right: .2rem"></i><a href="https://www.facebook.com/barindustrymm">/barindustrymm</a>
 						</p>
 						<p></p>
-						
-						<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1mCZRpNQ8cTF9mGzTTxfnhLkA9rUne3a1"width="70%" height="350px" class="center"></iframe>
+
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item center" src="https://www.google.com/maps/d/u/0/embed?mid=1mCZRpNQ8cTF9mGzTTxfnhLkA9rUne3a1" width="90%" height="350px" class="center"></iframe>
+						</div>
 						
         </div>
 
