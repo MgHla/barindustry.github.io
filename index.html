@@ -121,14 +121,16 @@
         </nav>
 
 		<div style="height: 4.2rem" id="Home"></div>
-			
-		<div id="carouselIndicators" class="carousel slide " data-bs-ride="carousel">
+<div class="d-none d-xl-block"> <!-- hide on screens smaller than lg --> 			
+		<div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
 		  <div class="carousel-indicators">
 			<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 			<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 			<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 			<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
 		  </div>
+
+ 
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
 			  <img src="./assets/HeaderImg_04.png" class="d-block w-100" alt="...">
@@ -142,6 +144,7 @@
 			<div class="carousel-item">
 			  <img src="./assets/HeaderImg_03.png" class="d-block w-100" alt="...">
 			</div>
+			
 		  </div>
 		  <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
 			<span class="fas fa-chevron-circle-left" aria-hidden="true" style="font-size:2rem"></span>
@@ -152,35 +155,44 @@
 			<span class="visually-hidden">Next</span>
 		  </button>
 		</div>
-<!--			
-			<div id="carouselControls" class="carousel slide " data-bs-ride="carousel">
-			
-  
-			  <div class="carousel-inner" style="background-color: bg-dark;">
-				<div class="carousel-item active">
-				  <img src="./assets/HeaderImg_01.png" class="w-100 p-3 mx-auto d-block" alt="...">
-				</div>
-				<div class="carousel-item">
-				  <img src="./assets/HeaderImg_02.png" class="w-100 p-3 mx-auto d-block" alt="..." >
-				</div>
-				<div class="carousel-item">
-				  <img src="./assets/HeaderImg_03.png" class="w-100 p-3 mx-auto d-block" alt="..." >
-				</div>
-				<div class="carousel-item">
-				  <img src="./assets/HeaderImg_04.png" class="w-100 p-3 mx-auto d-block" alt="..." >
-				</div>
-			  </div>
-			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			  </button>
-			  <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			  </button>
+</div>		
 
-			</div>	
--->
+
+<div class="d-xl-none"> <!-- hide on lg and wider screens -->	
+		<div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+		  <div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+		  </div>
+
+ 
+		  <div class="carousel-inner">
+			<div class="carousel-item active">
+			  <img src="./assets/HeaderImg_sml_01.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+			  <img src="./assets/HeaderImg_sml_01.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+			  <img src="./assets/HeaderImg_sml_01.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+			  <img src="./assets/HeaderImg_sml_01.png" class="d-block w-100" alt="...">
+			</div>
+			
+		  </div>
+		  <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+			<span class="fas fa-chevron-circle-left" aria-hidden="true" style="font-size:2rem"></span>
+			<span class="visually-hidden">Previous</span>
+		  </button>
+		  <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+			<span class="fas fa-chevron-circle-right" aria-hidden="true" style="font-size:2rem"></span>
+			<span class="visually-hidden">Next</span>
+		  </button>
+		</div>
+</div>	
 
 
 <div style="height: 4rem" id="FoodsMenu"></div>		
