@@ -1,0 +1,10 @@
+name,price,description,category,image_url
+Classic Burger,12.50,"Juicy beef patty, lettuce, tomato, cheese, special sauce, served with fries.",food,images/burger.jpg
+French Fries,4.00,"Crispy golden french fries, perfectly salted.",food,images/fries.jpg
+Caesar Salad,9.75,"Fresh romaine lettuce, crunchy croutons, shaved Parmesan, classic Caesar dressing.",food,images/salad.jpg
+Spicy Chicken Wings,10.00,"Six fiery buffalo wings with a side of cool ranch or blue cheese dip.",food,images/wings.jpg
+Mojito,9.00,"A refreshing blend of white rum, fresh mint, lime juice, sugar, and soda water.",drink,images/mojito.jpg
+Margarita,10.50,"Classic tequila, triple sec, and fresh lime juice, served on the rocks or frozen.",drink,images/margarita.jpg
+Espresso Martini,11.00,"Vodka, coffee liqueur, and freshly brewed espresso, a perfect pick-me-up.",drink,images/espresso_martini.jpg
+Craft Beer IPA,7.50,"A bold, hoppy, and aromatic India Pale Ale from a local brewery.",drink,images/ipa.jpg
+Local Lager,6.00,"Crisp, refreshing local lager, perfect for any occasion.",drink,images/lager.jpg
