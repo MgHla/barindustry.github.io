@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bar Industry Myanmar - Elevating Experiences</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    </head>
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <a href="#">BAR INDUSTRY MM</a>
+            <div class="logo"><img alt='Bar Industry' id='BIlogo' src='./images/logo.png' style='display: block' height='70vh; ' class="center"/>
+                <!-- a href="#">BAR INDUSTRY MM</a -->
+            </div>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -41,9 +46,16 @@
         <section id="menu" class="menu-section">
             <h2>Our Offerings</h2>
             <div class="menu-categories">
-                <button class="menu-category-btn active" data-category="food">Foods</button>
-                <button class="menu-category-btn" data-category="drink">Drinks</button>
+                <button class="main-category-btn active" data-category="food">Foods</button>
+                <button class="main-category-btn" data-category="drink">Drinks</button>
             </div>
+
+            <div id="food-subcategories" class="sub-category-buttons-container active">
+                </div>
+
+            <div id="drink-subcategories" class="sub-category-buttons-container">
+                </div>
+
             <div id="foods-menu" class="menu-items-container active">
                 </div>
             <div id="drinks-menu" class="menu-items-container">
@@ -71,5 +83,30 @@
     </footer>
 
     <script src="script.js"></script>
+<script>
+            // --- Navigation highlighting on scroll ---
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('header nav a');
+
+            window.onscroll = () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(a => {
+                    a.classList.remove('active');
+                    if(a.getAttribute('href') === `#${current}`){
+                        a.classList.add('active');
+                    }
+                })
+            };
+
+            // Kick off the menu loading process
+            loadMenu();
+</script>
 </body>
 </html>
