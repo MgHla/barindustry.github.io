@@ -1,0 +1,452 @@
+/* Basic Resets & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #000;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #e60000;
+}
+
+/* Header & Navigation */
+header {
+    background-color: #000;
+    padding: 1.2rem 0;
+    border-bottom: 3px solid #e60000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.logo a {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e60000;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 35px;
+}
+
+.nav-links a {
+    font-size: 1.1rem;
+    padding: 8px 12px;
+    position: relative;
+    color: #fff;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #e60000;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* Hero Section */
+.hero-section {
+    /* Remove direct background image from here */
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden; /* Important for containing slideshow images */
+}
+
+/* Slideshow Background Styles */
+.slideshow-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind content */
+    background-color: #000; /* Fallback background */
+}
+
+.slideshow-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Start hidden */
+    transition: opacity 1.5s ease-in-out; /* Smooth transition */
+}
+
+.slideshow-background img.active {
+    opacity: 1; /* Show active image */
+}
+
+/* Overlay for readability */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+    z-index: 1; /* Above images, below content */
+}
+
+
+.hero-content {
+    z-index: 2; /* Ensure content is above overlay and images */
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 25px;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    color: #ddd;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e60000;
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #b30000;
+    transform: translateY(-3px);
+}
+
+/* Sections General Styling */
+section {
+    padding: 100px 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 3.2rem;
+    margin-bottom: 50px;
+    color: #e60000;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: #e60000;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    border-radius: 2px;
+}
+
+/* About Section */
+.about-section {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+.about-section p {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Menu Section */
+.menu-section {
+    background-color: #000;
+}
+
+.menu-categories {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu-category-btn {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #333;
+    padding: 12px 30px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.menu-category-btn:hover {
+    background-color: #e60000;
+    border-color: #e60000;
+}
+
+.menu-category-btn.active {
+    background-color: #e60000;
+    border-color: #e60000;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(230, 0, 0, 0.5);
+}
+
+.menu-items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.menu-items-container.active {
+    display: grid;
+    opacity: 1;
+}
+
+.menu-item {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(230, 0, 0, 0.3);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.menu-item-details {
+    padding: 25px;
+}
+
+.menu-item-details h3 {
+    color: #e60000;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    text-transform: capitalize;
+}
+
+.menu-item-details .price {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.menu-item-details p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+
+/* Contact Section */
+.contact-section {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+.contact-section address {
+    font-style: normal;
+    margin-top: 30px;
+}
+
+.contact-section address p {
+    margin-bottom: 15px;
+    font-size: 1.15rem;
+    color: #ccc;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 2px solid #333;
+    font-size: 0.95rem;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #ccc;
+    font-size: 1rem;
+}
+
+.social-links a:hover {
+    color: #e60000;
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    section h2 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+    .logo a {
+        font-size: 1.8rem;
+    }
+    .nav-links {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 0 10px 10px;
+    }
+    .hero-section {
+        height: 550px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    section {
+        padding: 70px 15px;
+    }
+    section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    .menu-items-container {
+        grid-template-columns: 1fr;
+    }
+    .menu-item img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo a {
+        font-size: 1.5rem;
+    }
+    .nav-links li {
+        margin: 0 5px 10px;
+    }
+    .hero-section {
+        height: 450px;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+    .btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    section h2 {
+        font-size: 1.8rem;
+    }
+    .menu-category-btn {
+        padding: 8px 18px;
+        font-size: 1rem;
+    }
+    .menu-item-details h3 {
+        font-size: 1.5rem;
+    }
+    .menu-item-details .price {
+        font-size: 1.1rem;
+    }
+    .menu-item-details p {
+        font-size: 0.9rem;
+    }
+}
