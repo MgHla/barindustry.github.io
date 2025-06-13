@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Slideshow Configuration ---
     const slideshowImages = [
-        'http://localhost:8000/images/hero-bg-1.png', // Make sure these images exist in your /images/ folder
-        'http://localhost:8000/images/hero-bg-2.png',
-        'http://localhost:8000/images/hero-bg-3.png',
-        'http://localhost:8000/images/hero-bg-4.png'
+        'images/hero-bg-1.png', // Make sure these images exist in your /images/ folder
+        'images/hero-bg-2.png',
+        'images/hero-bg-3.png',
+        '/images/hero-bg-4.png'
     ];
     let currentSlide = 0;
     const slideIntervalTime = 5000; // 5 seconds
