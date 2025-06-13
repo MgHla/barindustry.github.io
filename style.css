@@ -27,7 +27,7 @@ a:hover {
 header {
     background-color: #000;
     padding: 1.2rem 0;
-    border-bottom: 3px solid #e60000;
+    border-bottom: 0px solid #e60000;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -41,6 +41,7 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 25px;
+    position: relative; /* Needed for absolute positioning of hamburger */
 }
 
 .logo a {
@@ -51,6 +52,37 @@ nav {
     text-transform: uppercase;
 }
 
+/* Hamburger Menu Styling */
+.hamburger-menu {
+    display: none; /* Hidden by default on larger screens */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1100; /* Ensure it's above other elements */
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #e60000; /* Red bars */
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animation for hamburger to 'X' */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -85,7 +117,6 @@ nav {
 
 /* Hero Section */
 .hero-section {
-    /* Remove direct background image from here */
     height: 700px;
     display: flex;
     justify-content: center;
@@ -94,7 +125,7 @@ nav {
     color: #fff;
     position: relative;
     padding: 0 20px;
-    overflow: hidden; /* Important for containing slideshow images */
+    overflow: hidden;
 }
 
 /* Slideshow Background Styles */
@@ -104,8 +135,8 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* Behind content */
-    background-color: #000; /* Fallback background */
+    z-index: 0;
+    background-color: #000;
 }
 
 .slideshow-background img {
@@ -115,12 +146,12 @@ nav {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0; /* Start hidden */
-    transition: opacity 1.5s ease-in-out; /* Smooth transition */
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
 .slideshow-background img.active {
-    opacity: 1; /* Show active image */
+    opacity: 1;
 }
 
 /* Overlay for readability */
@@ -131,13 +162,13 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
-    z-index: 1; /* Above images, below content */
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
 
 
 .hero-content {
-    z-index: 2; /* Ensure content is above overlay and images */
+    z-index: 2;
     max-width: 800px;
 }
 
@@ -224,13 +255,13 @@ section h2::after {
 }
 
 .menu-categories {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.menu-category-btn {
+.main-category-btn {
     background-color: #333;
     color: #fff;
     border: 2px solid #333;
@@ -241,16 +272,58 @@ section h2::after {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.menu-category-btn:hover {
+.main-category-btn:hover {
     background-color: #e60000;
     border-color: #e60000;
 }
 
-.menu-category-btn.active {
+.main-category-btn.active {
     background-color: #e60000;
     border-color: #e60000;
     color: #fff;
     box-shadow: 0 0 15px rgba(230, 0, 0, 0.5);
+}
+
+.sub-category-buttons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 0 10px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.sub-category-buttons-container.active {
+    display: flex;
+    opacity: 1;
+}
+
+.sub-category-btn {
+    background-color: #222;
+    color: #ccc;
+    border: 1px solid #444;
+    padding: 8px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.sub-category-btn:hover {
+    background-color: #555;
+    color: #fff;
+    border-color: #888;
+}
+
+.sub-category-btn.active {
+    background-color: #e60000;
+    border-color: #e60000;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(230, 0, 0, 0.4);
 }
 
 .menu-items-container {
@@ -357,34 +430,60 @@ footer {
 
 
 /* Responsive Design */
-@media (max-width: 992px) {
-    .hero-content h1 {
-        font-size: 3.2rem;
+@media (max-width: 768px) {
+    /* Show hamburger, hide nav links by default */
+    .hamburger-menu {
+        display: flex; /* Show hamburger icon */
+        position: absolute; /* Position relative to nav */
+        right: 25px; /* Adjust as needed */
+        top: 50%;
+        transform: translateY(-50%);
     }
-    .hero-content p {
+
+    .nav-links {
+        display: none; /* Hide nav links by default on small screens */
+        flex-direction: column;
+        width: 100%; /* Take full width */
+        background-color: #1a1a1a; /* Dark background for dropdown */
+        position: absolute;
+        top: 100%; /* Position below the header */
+        left: 0;
+        padding: 20px 0;
+        border-top: 1px solid #333;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Vertical spacing */
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block; /* Make links full width for better click area */
+        padding: 10px 0;
         font-size: 1.2rem;
     }
-    section h2 {
-        font-size: 2.8rem;
+    .nav-links a::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
-}
 
-@media (max-width: 768px) {
     nav {
-        flex-direction: column;
-        padding: 0 15px;
+        flex-direction: row; /* Keep logo and hamburger on same row */
+        justify-content: space-between; /* Space them out */
+        align-items: center;
+        padding: 0 25px;
+        position: relative; /* Ensure children can be absolutely positioned relative to nav */
     }
+
     .logo a {
         font-size: 1.8rem;
     }
-    .nav-links {
-        margin-top: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .nav-links li {
-        margin: 0 10px 10px;
-    }
+
     .hero-section {
         height: 550px;
     }
@@ -410,6 +509,13 @@ footer {
     }
     .menu-item img {
         height: 180px;
+    }
+    .sub-category-buttons-container {
+        gap: 10px;
+    }
+    .sub-category-btn {
+        font-size: 0.9rem;
+        padding: 6px 14px;
     }
 }
 
