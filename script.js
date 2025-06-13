@@ -1,20 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
     const foodsMenuContainer = document.getElementById('foods-menu');
     const drinksMenuContainer = document.getElementById('drinks-menu');
-    const menuCategoryButtons = document.querySelectorAll('.menu-category-btn');
-    const slideshowBackground = document.querySelector('.slideshow-background'); // Get the slideshow container
+    const mainCategoryButtons = document.querySelectorAll('.main-category-btn');
+    const foodSubcategoriesContainer = document.getElementById('food-subcategories');
+    const drinkSubcategoriesContainer = document.getElementById('drink-subcategories');
+
+    const slideshowBackground = document.querySelector('.slideshow-background');
+    const hamburgerMenu = document.querySelector('.hamburger-menu'); // Get the hamburger icon
+    const navLinks = document.querySelector('.nav-links'); // Get the navigation links
 
     let allMenuItems = [];
+    let currentActiveCategory = 'food';
+
+    // --- Hamburger Menu Toggle ---
+    hamburgerMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburgerMenu.classList.toggle('active');
+    });
+
+    // Close the menu when a nav link is clicked (for smoother navigation)
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                hamburgerMenu.classList.remove('active');
+            }
+        });
+    });
+
 
     // --- Slideshow Configuration ---
     const slideshowImages = [
-        'images/hero-bg-1.png', // Make sure these images exist in your /images/ folder
-        'images/hero-bg-2.png',
-        'images/hero-bg-3.png',
-        '/images/hero-bg-4.png'
+        './images/hero-bg-1.png',
+        './images/hero-bg-2.png',
+        './images/hero-bg-3.png',
+        './images/hero-bg-4.png'
     ];
     let currentSlide = 0;
-    const slideIntervalTime = 5000; // 5 seconds
+    const slideIntervalTime = 5000;
 
     function startSlideshow() {
         if (!slideshowBackground || slideshowImages.length === 0) {
@@ -22,13 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Pre-load images and create img elements
         slideshowImages.forEach((src, index) => {
             const img = document.createElement('img');
             img.src = src;
             img.alt = `Bar Industry background ${index + 1}`;
             if (index === 0) {
-                img.classList.add('active'); // First image is active initially
+                img.classList.add('active');
             }
             slideshowBackground.appendChild(img);
         });
@@ -36,24 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const images = slideshowBackground.querySelectorAll('img');
 
         setInterval(() => {
-            // Hide current active image
             images[currentSlide].classList.remove('active');
-
-            // Move to next slide
             currentSlide = (currentSlide + 1) % images.length;
-
-            // Show new active image
             images[currentSlide].classList.add('active');
         }, slideIntervalTime);
     }
 
-    // Call startSlideshow when DOM is ready
     startSlideshow();
 
+    // --- Menu Loading Logic ---
 
-    // --- Menu Loading Logic (existing code) ---
-
-    // Function to parse CSV data
     async function fetchCsvData(url) {
         try {
             const response = await fetch(url);
@@ -89,16 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // A simple CSV line parser to handle quoted fields with commas
     function parseCsvLine(line) {
         const result = [];
         let inQuote = false;
         let currentField = '';
         for (let i = 0; i < line.length; i++) {
             const char = line[i];
-            if (char === '"' && line[i + 1] === '"') { // Handle escaped quotes ""
+            if (char === '"' && line[i + 1] === '"') {
                 currentField += '"';
-                i++; // Skip the next quote
+                i++;
             } else if (char === '"') {
                 inQuote = !inQuote;
             } else if (char === ',' && !inQuote) {
@@ -108,10 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentField += char;
             }
         }
-        result.push(currentField.trim()); // Add the last field
+        result.push(currentField.trim());
         return result;
     }
-
 
     // Function to render menu items
     function renderMenuItems(items, container) {
@@ -128,43 +140,98 @@ document.addEventListener('DOMContentLoaded', () => {
             const imageUrl = item.image_url && item.image_url.trim() !== '' ? item.image_url : 'images/placeholder.jpg';
 
             menuItemDiv.innerHTML = `
-                <img src="${imageUrl}" alt="${item.name}" onerror="this.onerror=null; this.src='images/placeholder.jpg';">
+                <!-- img src="${imageUrl}" alt="${item.name}" onerror="this.onerror=null; this.src='images/placeholder.jpg';" -->
                 <div class="menu-item-details">
                     <h3>${item.name}</h3>
-                    <p class="price">$${parseFloat(item.price).toFixed(2)}</p>
-                    <p>${item.description}</p>
+                    <span class="price">${parseFloat(item.price)} Ks</span>
+                    <!-- p>${item.description}</p -->
                 </div>
             `;
             container.appendChild(menuItemDiv);
         });
     }
 
+    // Function to render sub-category buttons
+    function renderSubCategoryButtons(category, container) {
+        container.innerHTML = '';
+        const subCategories = new Set();
+        allMenuItems
+            .filter(item => item.category.toLowerCase() === category.toLowerCase())
+            .forEach(item => {
+                if (item.sub_category && item.sub_category.trim() !== '') {
+                    subCategories.add(item.sub_category.trim());
+                }
+            });
+
+        const allBtn = document.createElement('button');
+        allBtn.classList.add('sub-category-btn', 'active');
+        allBtn.dataset.subcategory = 'all';
+        allBtn.textContent = 'All';
+        container.appendChild(allBtn);
+
+        subCategories.forEach(subCat => {
+            const button = document.createElement('button');
+            button.classList.add('sub-category-btn');
+            button.dataset.subcategory = subCat;
+            button.textContent = subCat;
+            container.appendChild(button);
+        });
+
+        container.querySelectorAll('.sub-category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                container.querySelectorAll('.sub-category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const selectedSubCategory = btn.dataset.subcategory;
+                const filteredItems = allMenuItems.filter(item =>
+                    item.category.toLowerCase() === category.toLowerCase() &&
+                    (selectedSubCategory === 'all' || item.sub_category.toLowerCase() === selectedSubCategory.toLowerCase())
+                );
+
+                if (category === 'food') {
+                    renderMenuItems(filteredItems, foodsMenuContainer);
+                } else if (category === 'drink') {
+                    renderMenuItems(filteredItems, drinksMenuContainer);
+                }
+            });
+        });
+    }
+
+
     // Fetch and display menu on load
     fetchCsvData('menu.csv')
         .then(data => {
             allMenuItems = data;
-            const foods = allMenuItems.filter(item => item.category.toLowerCase() === 'food');
-            renderMenuItems(foods, foodsMenuContainer);
 
-            // Set up button click handlers
-            menuCategoryButtons.forEach(button => {
+            const initialFoods = allMenuItems.filter(item => item.category.toLowerCase() === 'food');
+            renderMenuItems(initialFoods, foodsMenuContainer);
+            renderSubCategoryButtons('food', foodSubcategoriesContainer);
+
+            mainCategoryButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const category = button.dataset.category;
+                    currentActiveCategory = category;
 
-                    menuCategoryButtons.forEach(btn => btn.classList.remove('active'));
+                    mainCategoryButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
 
                     foodsMenuContainer.classList.remove('active');
                     drinksMenuContainer.classList.remove('active');
+                    foodSubcategoriesContainer.classList.remove('active');
+                    drinkSubcategoriesContainer.classList.remove('active');
 
                     if (category === 'food') {
                         const foods = allMenuItems.filter(item => item.category.toLowerCase() === 'food');
                         renderMenuItems(foods, foodsMenuContainer);
                         foodsMenuContainer.classList.add('active');
+                        foodSubcategoriesContainer.classList.add('active');
+                        renderSubCategoryButtons('food', foodSubcategoriesContainer);
                     } else if (category === 'drink') {
                         const drinks = allMenuItems.filter(item => item.category.toLowerCase() === 'drink');
                         renderMenuItems(drinks, drinksMenuContainer);
                         drinksMenuContainer.classList.add('active');
+                        drinkSubcategoriesContainer.classList.add('active');
+                        renderSubCategoryButtons('drink', drinkSubcategoriesContainer);
                     }
                 });
             });
