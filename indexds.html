@@ -228,6 +228,7 @@
         });
 
         // Sample CSV data (in a real scenario, you would fetch this from a CSV file)
+        /*
         // Format: name,price,category,subcategory,imageUrl
         const csvData = `name,price,category,subcategory,imageUrl
 Margarita,12.99,Cocktails,Classic,https://images.unsplash.com/photo-1551751299-1b51cab2694c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80
@@ -244,7 +245,8 @@ Local Beer,5.99,Beer,Draft,https://images.unsplash.com/photo-1513309914637-65c20
 Imported Beer,7.99,Beer,Bottle,https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80
 Red Wine,8.99,Wine,Red,https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80
 White Wine,9.99,Wine,White,https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80`;
-
+*/
+        const csvData = fetchCsvData('menu.csv');
         // Parse CSV data
         function parseCSV(csv) {
             const lines = csv.split('\n');
