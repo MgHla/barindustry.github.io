@@ -32,6 +32,22 @@
         .menu-item-animate {
             animation: fadeIn 0.5s ease-out forwards;
         }
+        
+        /* Loading spinner */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #ef4444;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -39,7 +55,8 @@
     <nav class="bg-black border-b border-red-500 sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <a href="#" class="text-2xl font-bold text-red-500">BAR INDUSTRY <span class="text-white">MM</span></a>
+                <!-- a href="#" class="text-2xl font-bold text-red-500">BAR INDUSTRY <span class="text-white">MM</span></a -->
+                <a class="navbar-brand" href="#"><img alt='Bar Industry' id='BIlogo' src='./assets/BI_Logo_150.png' style='display: block' height='45vh; '/></a>
             </div>
             <div class="hidden md:flex space-x-8">
                 <a href="#" class="text-white hover:text-red-500 transition">Home</a>
@@ -98,27 +115,10 @@
             
             <!-- Menu Items Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-items-container">
-                <!-- Menu items will be loaded here by JavaScript -->
-                <div class="text-center py-8">
-                    <div class="animate-pulse flex flex-col items-center">
-                        <div class="h-48 w-full bg-gray-800 rounded-lg mb-4"></div>
-                        <div class="h-4 bg-gray-800 rounded w-3/4 mb-2"></div>
-                        <div class="h-4 bg-gray-800 rounded w-1/2"></div>
-                    </div>
-                </div>
-                <div class="text-center py-8">
-                    <div class="animate-pulse flex flex-col items-center">
-                        <div class="h-48 w-full bg-gray-800 rounded-lg mb-4"></div>
-                        <div class="h-4 bg-gray-800 rounded w-3/4 mb-2"></div>
-                        <div class="h-4 bg-gray-800 rounded w-1/2"></div>
-                    </div>
-                </div>
-                <div class="text-center py-8">
-                    <div class="animate-pulse flex flex-col items-center">
-                        <div class="h-48 w-full bg-gray-800 rounded-lg mb-4"></div>
-                        <div class="h-4 bg-gray-800 rounded w-3/4 mb-2"></div>
-                        <div class="h-4 bg-gray-800 rounded w-1/2"></div>
-                    </div>
+                <!-- Loading state -->
+                <div class="col-span-3 py-12">
+                    <div class="spinner"></div>
+                    <p class="text-center mt-4 text-gray-400">Loading menu...</p>
                 </div>
             </div>
         </div>
@@ -227,6 +227,51 @@
             menu.classList.toggle('hidden');
         });
 
+        // Improved CSV parsing function that handles quoted values
+        function parseCSV(csv) {
+            const lines = csv.split('\n');
+            if (lines.length < 2) return [];
+            
+            const headers = lines[0].split(',').map(h => h.trim());
+            const result = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                const values = [];
+                let inQuotes = false;
+                let currentValue = '';
+                
+                for (let j = 0; j < line.length; j++) {
+                    const char = line[j];
+                    
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        values.push(currentValue.trim());
+                        currentValue = '';
+                    } else {
+                        currentValue += char;
+                    }
+                }
+                
+                // Push the last value
+                values.push(currentValue.trim());
+                
+                // Create object if we have matching headers
+                if (values.length === headers.length) {
+                    const obj = {};
+                    for (let k = 0; k < headers.length; k++) {
+                        obj[headers[k]] = values[k];
+                    }
+                    result.push(obj);
+                }
+            }
+            
+            return result;
+        }
+
         // Load menu data from external CSV file
         async function loadMenuData() {
             try {
@@ -238,36 +283,86 @@
                 return parseCSV(csvData);
             } catch (error) {
                 console.error('Error loading menu data:', error);
+                // Show error message to user
+                const container = document.getElementById('menu-items-container');
+                container.innerHTML = `
+                    <div class="col-span-3 py-12 text-center">
+                        <i class="fas fa-exclamation-triangle text-red-500 text-4xl mb-4"></i>
+                        <p class="text-red-500 font-bold">Failed to load menu data</p>
+                        <p class="text-gray-400 mt-2">Please try again later or contact support</p>
+                    </div>
+                `;
                 return [];
             }
         }
 
-        // Parse CSV data
-        function parseCSV(csv) {
-            const lines = csv.split('\n');
-            const headers = lines[0].split(',');
-            const result = [];
+        // Render menu items
+        function renderMenuItems(items) {
+            const container = document.getElementById('menu-items-container');
             
-            for (let i = 1; i < lines.length; i++) {
-                const obj = {};
-                const currentline = lines[i].split(',');
-                
-                for (let j = 0; j < headers.length; j++) {
-                    obj[headers[j]] = currentline[j];
-                }
-                
-                result.push(obj);
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-3 py-12 text-center">
+                        <i class="fas fa-search text-gray-500 text-4xl mb-4"></i>
+                        <p class="text-gray-400">No menu items found</p>
+                    </div>
+                `;
+                return;
             }
             
-            return result;
+            container.innerHTML = '';
+            
+            items.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'menu-item-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl menu-item-animate';
+                itemElement.style.animationDelay = `${index * 0.1}s`;
+                
+                itemElement.innerHTML = `
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="${item.imageUrl || 'https://via.placeholder.com/400x300?text=No+Image'}" alt="${item.name}" class="w-full h-full object-cover transition duration-300 hover:scale-105">
+                        <div class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            $${item.price || 'N/A'}
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-1 text-white">${item.name || 'Unnamed Item'}</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 text-sm">${item.subcategory || ''}</span>
+                            <span class="text-red-500 text-sm font-bold">${item.category || ''}</span>
+                        </div>
+                        ${item.description ? `<p class="text-gray-300 text-sm mt-2">${item.description}</p>` : ''}
+                    </div>
+                `;
+                
+                container.appendChild(itemElement);
+            });
+        }
+
+        // Filter menu by category
+        function filterMenuByCategory(category) {
+            const filteredItems = menuItems.filter(item => item.category === category);
+            renderMenuItems(filteredItems);
+            
+            // Update active tab
+            document.querySelectorAll('#category-tabs button').forEach(tab => {
+                if (tab.dataset.category === category) {
+                    tab.classList.remove('bg-gray-800');
+                    tab.classList.add('bg-red-600');
+                } else {
+                    tab.classList.remove('bg-red-600');
+                    tab.classList.add('bg-gray-800');
+                }
+            });
         }
 
         // Initialize menu
         async function initializeMenu() {
             const menuItems = await loadMenuData();
             
+            if (menuItems.length === 0) return;
+            
             // Get unique categories
-            const categories = [...new Set(menuItems.map(item => item.category))];
+            const categories = [...new Set(menuItems.map(item => item.category).filter(Boolean))];
             
             // Render category tabs
             const categoryTabsContainer = document.getElementById('category-tabs');
@@ -287,67 +382,32 @@
             allTab.addEventListener('click', () => renderMenuItems(menuItems));
             categoryTabsContainer.insertBefore(allTab, categoryTabsContainer.firstChild);
             
-            // Render menu items
-        function renderMenuItems(items) {
-            const container = document.getElementById('menu-items-container');
-            container.innerHTML = '';
+            // Initial render of all items
+            renderMenuItems(menuItems);
             
-            items.forEach((item, index) => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'menu-item-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl menu-item-animate';
-                itemElement.style.animationDelay = `${index * 0.1}s`;
-                
-                itemElement.innerHTML = `
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="${item.imageUrl}" alt="${item.name}" class="w-full h-full object-cover transition duration-300 hover:scale-105">
-                        <div class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold">
-                            $${item.price}
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold mb-1 text-white">${item.name}</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-400 text-sm">${item.subcategory}</span>
-                            <span class="text-red-500 text-sm font-bold">${item.category}</span>
-                        </div>
-                    </div>
-                `;
-                
-                container.appendChild(itemElement);
+            // Search functionality
+            document.getElementById('menu-search').addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const filteredItems = menuItems.filter(item => 
+                    (item.name && item.name.toLowerCase().includes(searchTerm)) || 
+                    (item.subcategory && item.subcategory.toLowerCase().includes(searchTerm)) ||
+                    (item.category && item.category.toLowerCase().includes(searchTerm)) ||
+                    (item.description && item.description.toLowerCase().includes(searchTerm))
+                );
+                renderMenuItems(filteredItems);
             });
-        }
-        
-        // Filter menu by category
-        function filterMenuByCategory(category) {
-            const filteredItems = menuItems.filter(item => item.category === category);
-            renderMenuItems(filteredItems);
             
-            // Update active tab
-            document.querySelectorAll('#category-tabs button').forEach(tab => {
-                if (tab.dataset.category === category) {
-                    tab.classList.remove('bg-gray-800');
-                    tab.classList.add('bg-red-600');
-                } else {
-                    tab.classList.remove('bg-red-600');
-                    tab.classList.add('bg-gray-800');
-                }
-            });
+            return menuItems;
         }
-        
-        // Search functionality
-        document.getElementById('menu-search').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const filteredItems = menuItems.filter(item => 
-                item.name.toLowerCase().includes(searchTerm) || 
-                item.subcategory.toLowerCase().includes(searchTerm) ||
-                item.category.toLowerCase().includes(searchTerm)
-            );
-            renderMenuItems(filteredItems);
-        });
+
+        // Global variable to store menu items
+        let menuItems = [];
         
         // Initialize the menu when page loads
-        initializeMenu();
-        
+        document.addEventListener('DOMContentLoaded', async () => {
+            menuItems = await initializeMenu();
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
