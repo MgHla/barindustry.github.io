@@ -300,7 +300,7 @@
         // Load menu data from external CSV file
         async function loadMenuData() {
             try {
-                const response = await fetch('bimenu.csv');
+                const response = await fetch('menu.csv');
                 if (!response.ok) {
                     throw new Error('Failed to load menu data');
                 }
