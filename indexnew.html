@@ -89,10 +89,10 @@
                 <!-- <a href="#" class="text-2xl font-bold text-red-500">BAR INDUSTRY <span class="text-white">MM</span></a> -->
             </div>
             <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-white hover:text-red-500 transition">Home</a>
-				<a href="#about" class="text-white hover:text-red-500 transition">About</a>
-                <a href="#menu" class="text-white hover:text-red-500 transition">Menu</a>
-                <a href="#contact" class="text-white hover:text-red-500 transition">Contact</a>
+                <a href="#home" class="text-white hover:scale-110 hover:text-red-500 transition">Home</a>
+		<a href="#about" class="text-white hover:scale-110 hover:text-red-500 transition">About</a>
+                <a href="#menu" class="text-white hover:scale-110 hover:text-red-500 transition">Menu</a>
+                <a href="#contact" class="text-white hover:scale-110 hover:text-red-500 transition">Contact</a>
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
@@ -120,9 +120,9 @@
             <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('./images/HeaderImg_03.png')"></div>
         </div>
         <div class="container mx-auto px-4 z-10">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white opacity-60 hover:opacity-90">PREMIUM FOOD, DRINKS & LIVE MUSIC</h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-300">Experience the finest culinary delights and crafted cocktails</p>
-            <a href="#menu" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white opacity-60 hover:scale-105 hover:opacity-90">PREMIUM FOOD, DRINKS & LIVE MUSIC</h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 hover:scale-105">Experience the finest culinary delights and crafted cocktails</p>
+            <a href="#menu" class="bg-red-600 hover:bg-red-700 hover:scale-105 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block">
                 EXPLORE MENU
             </a>
         </div>
@@ -300,7 +300,7 @@
         // Load menu data from external CSV file
         async function loadMenuData() {
             try {
-                const response = await fetch('menu.csv');
+                const response = await fetch('bimenu.csv');
                 if (!response.ok) {
                     throw new Error('Failed to load menu data');
                 }
@@ -350,9 +350,9 @@
                         </div>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl font-bold mb-1 text-white">${item.name || 'Unnamed Item'}</h3>
+                        <h3 class="text-xl font-bold mb-1 text-white">${item.name_en || 'Unnamed Item'}</h3>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-400 text-sm">${item.description ? `<p class="text-gray-300 text-sm mt-2">${item.description}</p>` : ''}</span>
+                            <span class="text-gray-400 text-sm">${item.name_mm ? `<p class="text-gray-300 text-sm mt-2">${item.name_mm}</p>` : ''}</span>
                         <!--
 							<span class="text-red-500 text-l font-bold">${item.price || 'N/A'}-Ks</span>
                         -->
@@ -442,7 +442,7 @@
             const categoryTabsContainer = document.getElementById('category-tabs');
             categories.forEach((category, index) => {
                 const tab = document.createElement('button');
-                tab.className = `px-6 py-2 rounded-full text-white hover:bg-red-600 transition ${index === 0 ? 'bg-red-600' : 'bg-gray-800'}`;
+                tab.className = `uppercase px-6 py-2 rounded-full text-white hover:bg-red-600 transition ${index === 0 ? 'bg-red-600' : 'bg-gray-800'}`;
                 tab.textContent = category;
                 tab.dataset.category = category;
                 tab.addEventListener('click', () => filterMenuByCategory(category));
@@ -451,7 +451,7 @@
             
             // Add "All" tab
             const allTab = document.createElement('button');
-            allTab.className = 'px-6 py-2 rounded-full bg-red-600 text-white hover:bg-red-700 transition';
+            allTab.className = 'uppercase px-6 py-2 rounded-full bg-red-600 text-white hover:bg-red-700 transition';
             allTab.textContent = 'All';
             allTab.addEventListener('click', () => {
                 renderMenuItems(menuItems);
@@ -459,11 +459,11 @@
                 
                 // Reset active tabs
                 document.querySelectorAll('#category-tabs button').forEach(tab => {
-                    tab.classList.remove('bg-red-600');
-                    tab.classList.add('bg-gray-800');
+                    tab.classList.remove('bg-red-600 uppercase');
+                    tab.classList.add('bg-gray-800 uppercase');
                 });
-                allTab.classList.remove('bg-gray-800');
-                allTab.classList.add('bg-red-600');
+                allTab.classList.remove('bg-gray-800 uppercase');
+                allTab.classList.add('bg-red-600 uppercase');
             });
             categoryTabsContainer.insertBefore(allTab, categoryTabsContainer.firstChild);
             
